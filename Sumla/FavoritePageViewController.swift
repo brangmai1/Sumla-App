@@ -8,12 +8,29 @@
 import UIKit
 
 class FavoritePageViewController: UIViewController {
+//    UICollectionViewDataSource, UICollectionViewDelegate
 
+    @IBOutlet weak var favoriteCollectionView: UICollectionView!
+    
+    var artworks = [[String:Any]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
 
         // Do any additional setup after loading the view.
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return artworks.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//    }
+    
     
 
     /*

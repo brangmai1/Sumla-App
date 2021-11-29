@@ -1,26 +1,24 @@
 //
-//  SearchViewController.swift
+//  SearchSuccessViewController.swift
 //  Sumla
 //
-//  Created by Brang Mai on 11/9/21.
+//  Created by Brang Mai on 11/28/21.
 //
 
 import UIKit
 
-class SearchViewController: UIViewController {
-    
-    @IBOutlet weak var nameOfArtistField: UITextField!
-    @IBOutlet weak var nameOfArtPieceField: UITextField!
-    
+class SearchSuccessViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func search(_ sender: Any) {
+
+    @IBAction func backFromSearchSuccess(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
-    
     /*
     // MARK: - Navigation
 
