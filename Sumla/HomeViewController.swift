@@ -11,10 +11,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var tableView: UITableView!
     
-    //var artworksCollection: Response
-    var tokens: String = ""
-      
-    var artCollection = [String:Any]()
+//    var artCollection = [String]()
+    var artCollection = ArtCollectionData()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,27 +21,27 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         
-        let url = URL(string: "https://collectionapi.metmuseum.org/public/collection/v1/objects/555")!
-        let requestArtworks = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let sessionArtworks = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let taskArtworks = sessionArtworks.dataTask(with: requestArtworks) { (data, response, error) in
-
-            // This will run when the network request returns
-             if let error = error {
-                print(error.localizedDescription)
-             } else if let data = data {
-                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                 self.artCollection = dataDictionary
-                 print(self.artCollection)
-//                 print("Name of the painting is \(self.artCollection["title"]!)")
-                 self.tableView.reloadData()
-
-                    // TODO: Get the array of movies
-                    // TODO: Store the movies in a property to use elsewhere
-                    // TODO: Reload your table view data
-            }
-        }
-        taskArtworks.resume()
+//        let url = URL(string: "https://collectionapi.metmuseum.org/public/collection/v1/objects/555")!
+//        let requestArtworks = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+//        let sessionArtworks = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+//        let taskArtworks = sessionArtworks.dataTask(with: requestArtworks) { (data, response, error) in
+//
+//            // This will run when the network request returns
+//             if let error = error {
+//                print(error.localizedDescription)
+//             } else if let data = data {
+//                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String]
+//                 self.artCollection = dataDictionary
+//                 print(self.artCollection)
+////                 print("Name of the painting is \(self.artCollection["title"]!)")
+//                 self.tableView.reloadData()
+//
+//                    // TODO: Get the array of movies
+//                    // TODO: Store the movies in a property to use elsewhere
+//                    // TODO: Reload your table view data
+//            }
+//        }
+//        taskArtworks.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,11 +49,23 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArtCollectionCell") as! ArtCollectionCell
-//        let artTitle = artCollection["title"] as! String
-//        let artObjectID = artCollection["objectID"] as! String
-//
-//        let artCulture = artCollection["culture"] as! String
-//        cell.titleLabel.text = artTitle
+        let artCollectionData = ArtCollectionData()
+//        let artObjectID = artCollectionData.objectID
+//        let artObjectID = NSString(format:"%@", artCollectionData.objectID) as String
+        let artTitle = artCollectionData.title
+        let artCulture = artCollectionData.culture
+        let artist = artCollectionData.artistDisplayName
+
+        cell.titleLabel!.text = artTitle
+//        cell.objectIDLabel!.text = artObjectID
+        cell.cultureLabel!.text = artCulture
+        if artist != "" {
+            cell.artistLabel!.text = artist
+        } else {
+            cell.artistLabel!.text = "Unknown"            
+        }
+        
+        
         return cell
     }
       
