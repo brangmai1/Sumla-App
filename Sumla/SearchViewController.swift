@@ -11,7 +11,7 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    var searchResults = [ArtCollectionData]()
+    var searchResults = [ArtworkData]()
     
     //var textLable: String = ""
     
@@ -41,12 +41,12 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        let searchResult = ArtCollectionData()
-        for i in 0...2 {
-            searchResult.title = String(format: "Fake result %d for ", i)
-            searchResult.culture = searchBar.text!
-            searchResults.append(searchResult)
-        }
+        let searchResult = [ArtworkData]()
+//        for i in 0...2 {
+//            searchResult.title = String(format: "Fake result %d for ", i)
+//            searchResult.culture = searchBar.text!
+//            searchResults.append(searchResult)
+//        }
         tableView.reloadData()
     }
     func position(for bar: UIBarPositioning) -> UIBarPosition {
@@ -65,8 +65,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         }
         let searchResult = searchResults[indexPath.row]
-        cell?.textLabel!.text = searchResult.title
-        cell?.detailTextLabel!.text = searchResult.culture
+//        cell?.textLabel!.text = searchResult.title
+//        cell?.detailTextLabel!.text = searchResult.culture
         return cell!
     }
     
