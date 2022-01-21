@@ -10,10 +10,7 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
-//    var artCollection = [String]()
     var artworkData = [ArtworkData]()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,34 +28,27 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else if let data = data {
                 self.artworkData = self.parseData(data: data)
                 for art in self.artworkData {
-                    print(art.title!)
+                    print("\nArtwork title: \(art.title!)")
+                    print("Artist: \(art.artist_title!)")
                 }
-
-                       }
-                   }
-                   taskArtworks.resume()
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+         taskArtworks.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return artworkData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArtCollectionCell") as! ArtCollectionCell
-//        let artCollectionData = ArtCollectionData()
-//
-//        let artTitle = artCollectionData.title
-//        let artCulture = artCollectionData.culture
-//        let artist = artCollectionData.artistDisplayName
-//
-//        cell.titleLabel!.text = artTitle
-//        cell.cultureLabel!.text = artCulture
-//        if artist != "" {
-//            cell.artistLabel!.text = artist
-//        } else {
-//            cell.artistLabel!.text = "Unknown"
-//        }
-//
-        
+//        cell.titleLabel!.text = artworkData[indexPath.row].title
+//        cell.artistLabel!.text = artworkData[indexPath.row].artist_title
+        let anArtwork = artworkData[indexPath.row]
+        cell.configure(for: anArtwork)
         return cell
     }
     
@@ -78,7 +68,5 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                return []
            }
        }
-
-      
 }
         

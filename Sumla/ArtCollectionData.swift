@@ -22,6 +22,8 @@ class ArtworkData: Codable {
     var credit_line: String?
     var publication_history: String?
     var artwork_type: String?
-    var image_id: String?   
+    var artist_title: String?
+    var image_id: String?
+    
    
 }
