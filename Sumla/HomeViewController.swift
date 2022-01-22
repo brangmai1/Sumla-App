@@ -27,11 +27,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 print(error.localizedDescription)
             } else if let data = data {
                 self.artworkData = self.parseData(data: data)
-                for art in self.artworkData {
-                    print("\nArtwork title: \(art.title!)")
-                    print("Artist: \(art.artist_title!)")
-                }
                 
+                // Testing data
+//                for art in self.artworkData {
+//                    print("\nArtwork title: \(art.title!)")
+//                    print("Artist: \(art.artist_title!)")
+//                }
+//
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

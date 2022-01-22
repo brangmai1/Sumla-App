@@ -13,6 +13,8 @@ class ArtCollectionCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     
+    var downloadTask: URLSessionDownloadTask?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,21 +32,16 @@ class ArtCollectionCell: UITableViewCell {
         } else {
             artistLabel!.text = "Unknown"
         }
+        
+        let imageId = artData.image_id
+        let urlString = getUrlString(imageId: imageId!)
+        if let imageUrl = URL(string: urlString) {
+            downloadTask = artView.loadImage(url: imageUrl)
+        }
     }
     
-//    func configure(for ) {
-//        nameLabel.text = result.name
-//
-//        if result.artist.isEmpty {
-//            artistNameLabel.text = "Unknown"
-//        } else {
-//            artistNameLabel.text = String(format: "%@ (%@)", result.artist, result.type)
-//        }
-//
-//        artworkImageView.image = UIImage(systemName: "square")
-//        if let smallURL = URL(string: result.imageSmall) {
-//            downloadTask = artworkImageView.loadImage(url: smallURL)
-//        }
-//    }
-
+    func getUrlString(imageId: String) -> String {
+        let stringUrl = "https://www.artic.edu/iiif/2/\(imageId)/full/843,/0/default.jpg"
+        return stringUrl
+    }
 }
