@@ -14,14 +14,32 @@ class ArtCollectionCell: UITableViewCell {
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var provenanceLabel: UILabel!
-    
+    @IBOutlet weak var favoriteButton: UIButton!
     var downloadTask: URLSessionDownloadTask?
+    
+    var favorited: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func favoriteArt(_ sender: Any) {
+        let toBeFavorited = !favorited
+        if toBeFavorited {
+            self.setFavorite(true)
+        } else {
+            self.setFavorite(false)
+        }
+    }
+    func setFavorite(_ isFavorited: Bool) {
+        favorited = isFavorited
+        if (favorited) {
+            favoriteButton.setImage(UIImage(named: "love"), for: UIControl.State.normal)
+        } else {
+            favoriteButton.setImage(UIImage(named: "unlove"), for: UIControl.State.normal)
+        }
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
