@@ -18,10 +18,8 @@ class ArtworkData: Codable {
     var place_of_origin: String?
     var dimensions: String?
     var medium_display: String?
-    var inscriptions: String?
-    var credit_line: String?
     var publication_history: String?
-    var artwork_type: String?
+    var provenance_text: String?
     var artist_title: String?
     var image_id: String?
     

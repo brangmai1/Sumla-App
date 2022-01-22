@@ -12,6 +12,8 @@ class ArtCollectionCell: UITableViewCell {
     @IBOutlet weak var artView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var provenanceLabel: UILabel!
     
     var downloadTask: URLSessionDownloadTask?
     
@@ -28,10 +30,12 @@ class ArtCollectionCell: UITableViewCell {
     func configure(for artData: ArtworkData) {
         titleLabel!.text = artData.title
         if artData.artist_title != "" {
-            artistLabel!.text = artData.artist_title
+            artistLabel!.text = artData.artist_display
         } else {
             artistLabel!.text = "Unknown"
         }
+        typeLabel!.text = artData.medium_display
+        provenanceLabel!.text = artData.provenance_text
         
         let imageId = artData.image_id
         let urlString = getUrlString(imageId: imageId!)
