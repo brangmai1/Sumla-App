@@ -1,13 +1,13 @@
 //
-//  ArtDetailViewController.swift
+//  FavoriteViewController.swift
 //  Sumla
 //
-//  Created by Brang Mai on 12/7/21.
+//  Created by Brang Mai on 1/22/22.
 //
 
 import UIKit
 
-class ArtDetailViewController: UIViewController {
+class FavoriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
