@@ -64,7 +64,7 @@ class ArtCollectionCell: UITableViewCell {
     }
     
     func getUrlString(imageId: String) -> String {
-        let stringUrl = "https://www.artic.edu/iiif/2/\(imageId)/full/843,/0/default.jpg"
+        let stringUrl = "https://www.artic.edu/iiif/2/\(imageId)/full/200,/0/default.jpg"
         return stringUrl
     }
 }

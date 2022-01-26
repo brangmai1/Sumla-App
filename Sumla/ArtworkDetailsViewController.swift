@@ -36,7 +36,7 @@ class ArtworkDetailsViewController: UIViewController {
     }
     
     func getUrlString(imageId: String) -> String {
-        let stringUrl = "https://www.artic.edu/iiif/2/\(imageId)/full/1686,/0/default.jpg"
+        let stringUrl = "https://www.artic.edu/iiif/2/\(imageId)/full/400,/0/default.jpg"
         return stringUrl
     }
     
