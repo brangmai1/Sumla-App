@@ -54,6 +54,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     /*
        Book Title: UIKit Apprentice
        Authors: Fahim Farook, Matthijs Hollemans
@@ -70,5 +74,21 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                return []
            }
        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        //Find the selected artwork
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let artwork = artworkData[indexPath.row] 
+        
+        // Pass the selected artwork to the details view controller
+        let artworkDetailsViewController = segue.destination as! ArtworkDetailsViewController
+        artworkDetailsViewController.artwork = artwork
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
         

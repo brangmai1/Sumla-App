@@ -20,6 +20,7 @@ class ArtworkData: Codable {
     var medium_display: String?
     var publication_history: String?
     var provenance_text: String?
+    var department_title: String?
     var artist_title: String?
     var image_id: String?
     

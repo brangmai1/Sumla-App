@@ -13,7 +13,7 @@ class ArtCollectionCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var provenanceLabel: UILabel!
+    @IBOutlet weak var departmentTitleLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     var downloadTask: URLSessionDownloadTask?
     
@@ -53,12 +53,13 @@ class ArtCollectionCell: UITableViewCell {
             artistLabel!.text = "Unknown"
         }
         typeLabel!.text = artData.medium_display
-        provenanceLabel!.text = artData.provenance_text
+        departmentTitleLabel!.text = artData.department_title
         
-        let imageId = artData.image_id
-        let urlString = getUrlString(imageId: imageId!)
-        if let imageUrl = URL(string: urlString) {
-            downloadTask = artView.loadImage(url: imageUrl)
+        if let imageId = artData.image_id {
+            let urlString = getUrlString(imageId: imageId)
+            if let imageUrl = URL(string: urlString) {
+                downloadTask = artView.loadImage(url: imageUrl)
+            }
         }
     }
     
