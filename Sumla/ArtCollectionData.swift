@@ -7,11 +7,11 @@
 
 import Foundation
 
-class ArtworkCollectionData: Codable {
+class ArtworkCollectionData: NSObject, Codable {
     var data = [ArtworkData]()
 }
 
-class ArtworkData: Codable {
+class ArtworkData: NSObject, Codable {
     var id: Int?
     var title: String?
     var artist_display: String?

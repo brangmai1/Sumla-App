@@ -47,8 +47,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArtCollectionCell") as! ArtCollectionCell
-//        cell.titleLabel!.text = artworkData[indexPath.row].title
-//        cell.artistLabel!.text = artworkData[indexPath.row].artist_title
+
         let anArtwork = artworkData[indexPath.row]
         cell.configure(for: anArtwork)
         return cell
@@ -76,8 +75,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
        }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         
         //Find the selected artwork
         let cell = sender as! UITableViewCell
@@ -88,6 +85,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let artworkDetailsViewController = segue.destination as! ArtworkDetailsViewController
         artworkDetailsViewController.artwork = artwork
         
+        artworkDetailsViewController.hidesBottomBarWhenPushed = true
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

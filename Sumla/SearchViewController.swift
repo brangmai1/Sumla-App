@@ -7,21 +7,42 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
-    
-    @IBOutlet weak var searchBar: UISearchBar!
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+       
     @IBOutlet weak var tableView: UITableView!
-    var searchResults = [ArtworkData]()
-    
-    //var textLable: String = ""
-    
+    var selectedSearchName = ""
+    let searchCategories = ["Artwork ID", "Artwork Title", "Artist Name", "Artwork Type"]
+    var selectedIndexPath = IndexPath()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.contentInset = UIEdgeInsets(top: 51, left: 0, bottom: 0, right: 0)
-
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        for index in 0..<searchCategories.count {
+            if searchCategories[index] == selectedSearchName {
+                selectedIndexPath = IndexPath(row: index, section: 0)
+                break
+            }
+        }
+        
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchCategories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        
+        let categoryName = searchCategories[indexPath.row]
+        cell.textLabel!.text = categoryName
+        
+        return cell
+    }
+    
+    
     
 
     
@@ -37,38 +58,3 @@ class SearchViewController: UIViewController {
 
 }
 
-// Search Bar Delegate
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        let searchResult = [ArtworkData]()
-//        for i in 0...2 {
-//            searchResult.title = String(format: "Fake result %d for ", i)
-//            searchResult.culture = searchBar.text!
-//            searchResults.append(searchResult)
-//        }
-        tableView.reloadData()
-    }
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-}
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResults.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "SearchResultCell"
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        if cell == nil {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
-        }
-        let searchResult = searchResults[indexPath.row]
-//        cell?.textLabel!.text = searchResult.title
-//        cell?.detailTextLabel!.text = searchResult.culture
-        return cell!
-    }
-    
-    
-}

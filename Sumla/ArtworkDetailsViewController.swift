@@ -13,8 +13,8 @@ class ArtworkDetailsViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artworkLargeView: UIImageView!
-    
     @IBOutlet weak var publicationHistoryLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +31,6 @@ class ArtworkDetailsViewController: UIViewController {
                 downloadTask = artworkLargeView.loadImage(url: imageUrl)
             }
         }
-        
         publicationHistoryLabel!.text = artData.publication_history
     }
     
@@ -39,16 +38,4 @@ class ArtworkDetailsViewController: UIViewController {
         let stringUrl = "https://www.artic.edu/iiif/2/\(imageId)/full/400,/0/default.jpg"
         return stringUrl
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -21,7 +21,6 @@ class ArtCollectionCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     @IBAction func favoriteArt(_ sender: Any) {
@@ -42,9 +41,8 @@ class ArtCollectionCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+    
     func configure(for artData: ArtworkData) {
         titleLabel!.text = artData.title
         if artData.artist_title != "" {

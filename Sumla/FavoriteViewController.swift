@@ -7,13 +7,26 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
+class FavoriteViewController: UIViewController { // , UITableViewDataSource, UITableViewDelegate
+    
+    var favoriteCollection: FavoriteCollection!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("Favorite Item count: \(favoriteCollection.artworks.count)")
     }
+    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        print("Item count \(favoriteCollection.artworks.count)")
+//        return favoriteCollection.artworks.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//
     
 
     /*
