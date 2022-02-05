@@ -16,11 +16,12 @@
 		9D8C16B5271F50D2000EC665 /* Sumla.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C16B3271F50D2000EC665 /* Sumla.xcdatamodeld */; };
 		9D8C16BA271F50D3000EC665 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8C16B8271F50D3000EC665 /* LaunchScreen.storyboard */; };
 		9D8C16C4271F5A6C000EC665 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8C16C3271F5A6C000EC665 /* Assets.xcassets */; };
+		9D8F2BC127AE31AA00C5C667 /* SearchArtworkTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F2BC027AE31AA00C5C667 /* SearchArtworkTypeViewController.swift */; };
 		9DBC9107275DB6E1005B9419 /* ArtCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBC9106275DB6E1005B9419 /* ArtCollectionCell.swift */; };
 		9DCAA6D627A1BD7E003BDBA3 /* ArtworkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAA6D527A1BD7E003BDBA3 /* ArtworkDetailsViewController.swift */; };
 		9DCAA6D827A30F6D003BDBA3 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAA6D727A30F6D003BDBA3 /* DataModel.swift */; };
 		9DCAA6DA27A3160B003BDBA3 /* FavoriteCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAA6D927A3160B003BDBA3 /* FavoriteCollection.swift */; };
-		9DCAA6E027AA46DA003BDBA3 /* SearchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAA6DF27AA46DA003BDBA3 /* SearchedResultsTableViewController.swift */; };
+		9DCAA6E027AA46DA003BDBA3 /* SearchTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAA6DF27AA46DA003BDBA3 /* SearchTitleViewController.swift */; };
 		9DF964F2279B1149007F1AF6 /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF964F1279B1149007F1AF6 /* DownloadImage.swift */; };
 		9DF964F6279CA87E007F1AF6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF964F5279CA87E007F1AF6 /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
@@ -37,11 +38,12 @@
 		9D8C16B9271F50D3000EC665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D8C16BB271F50D3000EC665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D8C16C3271F5A6C000EC665 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "AppIcons (5)/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		9D8F2BC027AE31AA00C5C667 /* SearchArtworkTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtworkTypeViewController.swift; sourceTree = "<group>"; };
 		9DBC9106275DB6E1005B9419 /* ArtCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionCell.swift; sourceTree = "<group>"; };
 		9DCAA6D527A1BD7E003BDBA3 /* ArtworkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkDetailsViewController.swift; sourceTree = "<group>"; };
 		9DCAA6D727A30F6D003BDBA3 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		9DCAA6D927A3160B003BDBA3 /* FavoriteCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollection.swift; sourceTree = "<group>"; };
-		9DCAA6DF27AA46DA003BDBA3 /* SearchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedResultsTableViewController.swift; sourceTree = "<group>"; };
+		9DCAA6DF27AA46DA003BDBA3 /* SearchTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTitleViewController.swift; sourceTree = "<group>"; };
 		9DF964F1279B1149007F1AF6 /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		9DF964F5279CA87E007F1AF6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,7 +88,8 @@
 				9DCAA6D927A3160B003BDBA3 /* FavoriteCollection.swift */,
 				9DF964F1279B1149007F1AF6 /* DownloadImage.swift */,
 				9D2EDCB9273AE61900D32E70 /* SearchViewController.swift */,
-				9DCAA6DF27AA46DA003BDBA3 /* SearchedResultsTableViewController.swift */,
+				9DCAA6DF27AA46DA003BDBA3 /* SearchTitleViewController.swift */,
+				9D8F2BC027AE31AA00C5C667 /* SearchArtworkTypeViewController.swift */,
 				9D1D860E275F0B0F00A1561F /* ArtCollectionData.swift */,
 				9D8C16B0271F50D2000EC665 /* Main.storyboard */,
 				9D8C16C3271F5A6C000EC665 /* Assets.xcassets */,
@@ -173,8 +176,9 @@
 				9DF964F2279B1149007F1AF6 /* DownloadImage.swift in Sources */,
 				9DBC9107275DB6E1005B9419 /* ArtCollectionCell.swift in Sources */,
 				9D2643DE27379901003FF259 /* HomeViewController.swift in Sources */,
-				9DCAA6E027AA46DA003BDBA3 /* SearchedResultsTableViewController.swift in Sources */,
+				9DCAA6E027AA46DA003BDBA3 /* SearchTitleViewController.swift in Sources */,
 				9DCAA6D827A30F6D003BDBA3 /* DataModel.swift in Sources */,
+				9D8F2BC127AE31AA00C5C667 /* SearchArtworkTypeViewController.swift in Sources */,
 				9DCAA6DA27A3160B003BDBA3 /* FavoriteCollection.swift in Sources */,
 				9D8C16B5271F50D2000EC665 /* Sumla.xcdatamodeld in Sources */,
 				9D8C16AB271F50D2000EC665 /* AppDelegate.swift in Sources */,

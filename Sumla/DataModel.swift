@@ -67,4 +67,21 @@ class DataModel {
         }
     }
     
+    /*
+       Book Title: UIKit Apprentice
+       Authors: Fahim Farook, Matthijs Hollemans
+       Code Version: Second Eddition
+       Availability: https://www.raywenderlich.com/books/uikit-apprentice
+       */
+       func parseData(data: Data) -> [ArtworkData] {
+           do {
+               let decoder = JSONDecoder()
+               let result = try decoder.decode(ArtworkCollectionData.self, from: data)
+               return result.data
+           } catch {
+               print("JSON Error: \(error)")
+               return []
+           }
+       }
+    
 }

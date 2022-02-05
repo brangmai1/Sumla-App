@@ -60,16 +60,16 @@
             </objects>
             <point key="canvasLocation" x="404" y="759"/>
         </scene>
-        <!--Searched Results Table View Controller-->
+        <!--Search Title View Controller-->
         <scene sceneID="j5Q-ed-o4G">
             <objects>
-                <tableViewController id="RgU-6d-1XU" customClass="SearchedResultsTableViewController" customModule="Sumla" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="RgU-6d-1XU" customClass="SearchTitleViewController" customModule="Sumla" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Gln-y5-6XD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultsCell" textLabel="B7K-aN-t0W" style="IBUITableViewCellStyleDefault" id="xiW-W4-748">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TitleCell" textLabel="B7K-aN-t0W" style="IBUITableViewCellStyleDefault" id="xiW-W4-748">
                                 <rect key="frame" x="0.0" y="44.5" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xiW-W4-748" id="e32-QO-PLR">
@@ -96,7 +96,44 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2PX-we-fUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1442" y="829"/>
+            <point key="canvasLocation" x="1729" y="786"/>
+        </scene>
+        <!--Search Artwork Type View Controller-->
+        <scene sceneID="CRS-cS-Scl">
+            <objects>
+                <tableViewController id="5a9-W3-rGZ" customClass="SearchArtworkTypeViewController" customModule="Sumla" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Xva-4w-4SE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TypeCell" textLabel="7ug-Jk-yV4" style="IBUITableViewCellStyleDefault" id="53d-4t-3Fy">
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="53d-4t-3Fy" id="GiV-xh-R1W">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7ug-Jk-yV4">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5a9-W3-rGZ" id="Fty-n0-LYs"/>
+                            <outlet property="delegate" destination="5a9-W3-rGZ" id="SRc-qQ-61o"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="neG-mv-2PH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2406" y="786"/>
         </scene>
         <!--Art Collection-->
         <scene sceneID="bhx-L3-6z7">
@@ -138,7 +175,7 @@
                                                         <action selector="favoriteArt:" destination="D0g-Gi-Orc" eventType="touchUpInside" id="kl2-yX-IgJ"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click more info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgf-Lg-4zG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More info ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgf-Lg-4zG">
                                                     <rect key="frame" x="187" y="162" width="112" height="34"/>
                                                     <color key="backgroundColor" red="0.53495409408795469" green="0.53495409408795469" blue="0.53495409408795469" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
@@ -331,7 +368,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="RgU-6d-1XU" kind="show" identifier="SearchedResults" id="Yrh-hh-h5P"/>
+                                            <segue destination="RgU-6d-1XU" kind="show" identifier="SearchByTitle" id="Yrh-hh-h5P"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -355,7 +392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOM-VG-Kdy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1442.4000000000001" y="64.31784107946028"/>
+            <point key="canvasLocation" x="1729" y="36"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tLC-pG-4YW">

@@ -7,13 +7,29 @@
 
 import UIKit
 
-class SearchedResultsTableViewController: UITableViewController {
+class SearchTitleViewController: UITableViewController {
     var artworkData = [ArtworkData]()
-    var selectedCategory = ""
+    var dataModel = DataModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let url = URL(string: "https://api.artic.edu/api/v1/artworks")!
+        let requestArtworks = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessionArtworks = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let taskArtworks = sessionArtworks.dataTask(with: requestArtworks) { (data, response, error) in
 
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                self.artworkData = self.dataModel.parseData(data: data)
+
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+         taskArtworks.resume()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -21,16 +37,17 @@ class SearchedResultsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultsCell", for: indexPath)
-        if selectedCategory == "Artwork Title" {
-            let artistTitle = artworkData[indexPath.row].artist_title
-            cell.textLabel!.text = artistTitle
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath)
+        let title = artworkData[indexPath.row].title
+        if title != ""{
+            cell.textLabel!.text = title
         } else {
-            cell.textLabel!.text = "None"
+            cell.textLabel!.text = "No Title"
         }
         
         return cell
     }
+}
 
     /*
     // Override to support conditional editing of the table view.
@@ -77,4 +94,4 @@ class SearchedResultsTableViewController: UITableViewController {
     }
     */
 
-}
+

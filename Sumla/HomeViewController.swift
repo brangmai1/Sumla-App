@@ -11,6 +11,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var tableView: UITableView!
     var artworkData = [ArtworkData]()
+    var dataModel = DataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data {
-                self.artworkData = self.parseData(data: data)
+//                self.artworkData = self.parseData(data: data)
+                self.artworkData = self.dataModel.parseData(data: data)
+
                 
                 // Testing data
 //                for art in self.artworkData {
@@ -57,22 +60,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    /*
-       Book Title: UIKit Apprentice
-       Authors: Fahim Farook, Matthijs Hollemans
-       Code Version: Second Eddition
-       Availability: https://www.raywenderlich.com/books/uikit-apprentice
-       */
-       func parseData(data: Data) -> [ArtworkData] {
-           do {
-               let decoder = JSONDecoder()
-               let result = try decoder.decode(ArtworkCollectionData.self, from: data)
-               return result.data
-           } catch {
-               print("JSON Error: \(error)")
-               return []
-           }
-       }
+//    /*
+//       Book Title: UIKit Apprentice
+//       Authors: Fahim Farook, Matthijs Hollemans
+//       Code Version: Second Eddition
+//       Availability: https://www.raywenderlich.com/books/uikit-apprentice
+//       */
+//       func parseData(data: Data) -> [ArtworkData] {
+//           do {
+//               let decoder = JSONDecoder()
+//               let result = try decoder.decode(ArtworkCollectionData.self, from: data)
+//               return result.data
+//           } catch {
+//               print("JSON Error: \(error)")
+//               return []
+//           }
+//       }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

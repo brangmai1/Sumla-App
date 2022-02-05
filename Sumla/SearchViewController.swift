@@ -11,7 +11,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
        
     @IBOutlet weak var tableView: UITableView!
     var selectedSearchName = ""
-    let searchCategories = ["Artwork ID", "Artwork Title", "Artist Name", "Artwork Type"]
+    let searchCategories = ["Artwork Title", "Artwork Type"]
     var selectedIndexPath = IndexPath()
     var selectedIndex = 0
 
@@ -41,20 +41,22 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         let categoryName = searchCategories[indexPath.row]
         cell.textLabel!.text = categoryName
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
-        print("Selected row is: \(searchCategories[selectedIndexPath.row])")
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    
   
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! SearchedResultsTableViewController
-        controller.selectedCategory = searchCategories[selectedIndexPath.row]
+        if segue.identifier == "SearchByTitle" {
+            let controller = segue.destination as! SearchTitleViewController
+            let artworkCollectionData = ArtworkCollectionData()
+            controller.artworkData = artworkCollectionData.data
+        }
     }
 
 }
