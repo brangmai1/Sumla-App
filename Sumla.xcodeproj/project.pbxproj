@@ -20,6 +20,7 @@
 		9DCAA6D627A1BD7E003BDBA3 /* ArtworkDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAA6D527A1BD7E003BDBA3 /* ArtworkDetailsViewController.swift */; };
 		9DCAA6D827A30F6D003BDBA3 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAA6D727A30F6D003BDBA3 /* DataModel.swift */; };
 		9DCAA6DA27A3160B003BDBA3 /* FavoriteCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAA6D927A3160B003BDBA3 /* FavoriteCollection.swift */; };
+		9DCAA6E027AA46DA003BDBA3 /* SearchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAA6DF27AA46DA003BDBA3 /* SearchedResultsTableViewController.swift */; };
 		9DF964F2279B1149007F1AF6 /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF964F1279B1149007F1AF6 /* DownloadImage.swift */; };
 		9DF964F6279CA87E007F1AF6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF964F5279CA87E007F1AF6 /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		9DCAA6D527A1BD7E003BDBA3 /* ArtworkDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkDetailsViewController.swift; sourceTree = "<group>"; };
 		9DCAA6D727A30F6D003BDBA3 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		9DCAA6D927A3160B003BDBA3 /* FavoriteCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollection.swift; sourceTree = "<group>"; };
+		9DCAA6DF27AA46DA003BDBA3 /* SearchedResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedResultsTableViewController.swift; sourceTree = "<group>"; };
 		9DF964F1279B1149007F1AF6 /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		9DF964F5279CA87E007F1AF6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 				9DCAA6D927A3160B003BDBA3 /* FavoriteCollection.swift */,
 				9DF964F1279B1149007F1AF6 /* DownloadImage.swift */,
 				9D2EDCB9273AE61900D32E70 /* SearchViewController.swift */,
+				9DCAA6DF27AA46DA003BDBA3 /* SearchedResultsTableViewController.swift */,
 				9D1D860E275F0B0F00A1561F /* ArtCollectionData.swift */,
 				9D8C16B0271F50D2000EC665 /* Main.storyboard */,
 				9D8C16C3271F5A6C000EC665 /* Assets.xcassets */,
@@ -170,6 +173,7 @@
 				9DF964F2279B1149007F1AF6 /* DownloadImage.swift in Sources */,
 				9DBC9107275DB6E1005B9419 /* ArtCollectionCell.swift in Sources */,
 				9D2643DE27379901003FF259 /* HomeViewController.swift in Sources */,
+				9DCAA6E027AA46DA003BDBA3 /* SearchedResultsTableViewController.swift in Sources */,
 				9DCAA6D827A30F6D003BDBA3 /* DataModel.swift in Sources */,
 				9DCAA6DA27A3160B003BDBA3 /* FavoriteCollection.swift in Sources */,
 				9D8C16B5271F50D2000EC665 /* Sumla.xcdatamodeld in Sources */,

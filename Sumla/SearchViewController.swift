@@ -13,6 +13,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     var selectedSearchName = ""
     let searchCategories = ["Artwork ID", "Artwork Title", "Artist Name", "Artwork Type"]
     var selectedIndexPath = IndexPath()
+    var selectedIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +21,14 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
-        for index in 0..<searchCategories.count {
-            if searchCategories[index] == selectedSearchName {
-                selectedIndexPath = IndexPath(row: index, section: 0)
-                break
-            }
-        }
+//        for index in 0..<searchCategories.count {
+//            if searchCategories[index] == selectedSearchName {
+//                selectedIndexPath = IndexPath(row: index, section: 0)
+//                break
+//            }
+//        }
+//
+//        print("Selected Name: \(selectedSearchName)")
         
     }
     
@@ -42,19 +45,17 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    
-    
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+        print("Selected row is: \(searchCategories[selectedIndexPath.row])")
     }
-    */
+    
+  
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! SearchedResultsTableViewController
+        controller.selectedCategory = searchCategories[selectedIndexPath.row]
+    }
 
 }
 
