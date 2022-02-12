@@ -12,17 +12,18 @@ class ArtworkCollectionData: NSObject, Codable {
 }
 
 class ArtworkData: NSObject, Codable {
-    var id: Int?
-    var title: String?
-    var artist_display: String?
-    var place_of_origin: String?
-    var dimensions: String?
-    var medium_display: String?
-    var publication_history: String?
-    var provenance_text: String?
-    var department_title: String?
-    var artist_title: String?
-    var image_id: String?
+    var id: Int? = 0
+    var title: String? = ""
+    var artist_display: String? = ""
+    var place_of_origin: String? = ""
+    var dimensions: String? = ""
+    var medium_display: String? = ""
+    var publication_history: String? = ""
+    var provenance_text: String? = ""
+    var artwork_type_title: String? = ""
+    var department_title: String? = ""
+    var artist_title: String? = ""
+    var image_id: String? = ""
     
    
 }

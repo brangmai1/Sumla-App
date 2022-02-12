@@ -13,7 +13,7 @@ class ArtworkDetailsViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artworkLargeView: UIImageView!
-    @IBOutlet weak var publicationHistoryLabel: UILabel!
+    @IBOutlet weak var mediumDisplayLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class ArtworkDetailsViewController: UIViewController {
                 downloadTask = artworkLargeView.loadImage(url: imageUrl)
             }
         }
-        publicationHistoryLabel!.text = artData.publication_history
+        mediumDisplayLabel!.text = artData.medium_display
     }
     
     func getUrlString(imageId: String) -> String {
