@@ -43,11 +43,18 @@ class SearchArtworkTypeViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TypeCell", for: indexPath)
+        let artworkType = artworkData[indexPath.row].artwork_type_title
+        if artworkType != "" {
+            cell.textLabel?.text = artworkType
+        } else {
+            cell.textLabel?.text = "Unknown"
+        }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
