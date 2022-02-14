@@ -7,27 +7,66 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController { // , UITableViewDataSource, UITableViewDelegate
+class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var favoriteCollection: FavoriteCollection!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var artworkData = [ArtworkData]()
+    var dataModel = DataModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
 
-        // Do any additional setup after loading the view.
-        print("Favorite Item count: \(favoriteCollection.artworks.count)")
+//        let layout = artworkCollection.collectionViewLayout as! UICollectionViewFlowLayout
+//        let rulerTwo: CGFloat = 2
+//        let rulerThree: CGFloat = 3
+//        let rulerFive: CGFloat = 5
+//
+//        layout.minimumLineSpacing = rulerThree
+//        layout.minimumInteritemSpacing = rulerThree
+//
+//        let width = (view.frame.size.width - layout.minimumInteritemSpacing * rulerFive) / rulerThree
+//        layout.itemSize = CGSize(width: width, height: width * rulerThree / rulerTwo)
+        
+        let url = URL(string: "https://api.artic.edu/api/v1/artworks")!
+        let requestArtworks = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let sessionArtworks = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let taskArtworks = sessionArtworks.dataTask(with: requestArtworks) { (data, response, error) in
+
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                self.artworkData = self.dataModel.parseData(data: data)
+
+                self.collectionView.reloadData()
+//
+//                DispatchQueue.main.async {
+//                    self.collectionView.reloadData()
+//                }
+            }
+        }
+         taskArtworks.resume()
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return artworkData.count
     }
     
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print("Item count \(favoriteCollection.artworks.count)")
-//        return favoriteCollection.artworks.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteGridCell", for: indexPath) as! FavoriteGridCell
+        let anArtwork = artworkData[indexPath.item]
+        cell.configure(for: anArtwork)
+        
+        return cell
+    }
     
+    
+
+        
+}
+
 
     /*
     // MARK: - Navigation
@@ -39,4 +78,4 @@ class FavoriteViewController: UIViewController { // , UITableViewDataSource, UIT
     }
     */
 
-}
+

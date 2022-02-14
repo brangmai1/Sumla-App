@@ -23,6 +23,7 @@ class ArtworkData: NSObject, Codable {
     var artwork_type_title: String? = ""
     var department_title: String? = ""
     var artist_title: String? = ""
+    var style_title: String? = ""
     var image_id: String? = ""
     
    

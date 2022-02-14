@@ -14,6 +14,7 @@ class SearchTitleViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Source code: https://courses.codepath.org/courses/ios_university/unit/1#!assignment        
         let url = URL(string: "https://api.artic.edu/api/v1/artworks")!
         let requestArtworks = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let sessionArtworks = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -50,6 +51,20 @@ class SearchTitleViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     let cell = sender as! UITableViewCell
+     let indexPath = tableView.indexPath(for: cell)!
+     let artwork = artworkData[indexPath.row]
+     
+     // Pass the selected artwork to the details view controller
+     let artworkDetailsViewController = segue.destination as! ArtworkDetailsViewController
+     artworkDetailsViewController.artwork = artwork
+     
+     artworkDetailsViewController.hidesBottomBarWhenPushed = true
+     tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -88,14 +103,8 @@ class SearchTitleViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+    
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 

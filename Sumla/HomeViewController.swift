@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         
+        // Source code: https://courses.codepath.org/courses/ios_university/unit/1#!assignment
         let url = URL(string: "https://api.artic.edu/api/v1/artworks")!
         let requestArtworks = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let sessionArtworks = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -27,16 +28,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data {
-//                self.artworkData = self.parseData(data: data)
                 self.artworkData = self.dataModel.parseData(data: data)
 
-                
-                // Testing data
-//                for art in self.artworkData {
-//                    print("\nArtwork title: \(art.title!)")
-//                    print("Artist: \(art.artist_title!)")
-//                }
-//
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -59,23 +52,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-//    /*
-//       Book Title: UIKit Apprentice
-//       Authors: Fahim Farook, Matthijs Hollemans
-//       Code Version: Second Eddition
-//       Availability: https://www.raywenderlich.com/books/uikit-apprentice
-//       */
-//       func parseData(data: Data) -> [ArtworkData] {
-//           do {
-//               let decoder = JSONDecoder()
-//               let result = try decoder.decode(ArtworkCollectionData.self, from: data)
-//               return result.data
-//           } catch {
-//               print("JSON Error: \(error)")
-//               return []
-//           }
-//       }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
