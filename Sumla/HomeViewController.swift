@@ -68,4 +68,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
+extension HomeViewController: FavoriteScreenDelegate {
+    func didTapFavorite(alert: UIAlertController) {
+        let alert = UIAlertController(title: "Alert", message: "You have an alert", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { action in
+            print("Alert notify")
+        }))
+        present(alert, animated: true)
+    }
+    
+    
+}
         

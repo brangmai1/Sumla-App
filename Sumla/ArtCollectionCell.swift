@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
 class ArtCollectionCell: UITableViewCell {
+    
+    var managedObjectContext: NSManagedObjectContext!
     
     @IBOutlet weak var artView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -65,4 +68,6 @@ class ArtCollectionCell: UITableViewCell {
         let stringUrl = "https://www.artic.edu/iiif/2/\(imageId)/full/200,/0/default.jpg"
         return stringUrl
     }
+    
+    
 }

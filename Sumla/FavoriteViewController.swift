@@ -7,18 +7,33 @@
 
 import UIKit
 
+protocol FavoriteScreenDelegate {
+    func didTapFavorite(alert: UIAlertController)
+    
+}
+
 class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var artworkData = [ArtworkData]()
     var dataModel = DataModel()
+    
+    var favoriteDelegate: FavoriteScreenDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            
+        }
+        
+        self.showAlert()
+        
 
 //        let layout = artworkCollection.collectionViewLayout as! UICollectionViewFlowLayout
 //        let rulerTwo: CGFloat = 2
@@ -31,24 +46,24 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
 //        let width = (view.frame.size.width - layout.minimumInteritemSpacing * rulerFive) / rulerThree
 //        layout.itemSize = CGSize(width: width, height: width * rulerThree / rulerTwo)
         
-        let url = URL(string: "https://api.artic.edu/api/v1/artworks")!
-        let requestArtworks = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let sessionArtworks = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let taskArtworks = sessionArtworks.dataTask(with: requestArtworks) { (data, response, error) in
-
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                self.artworkData = self.dataModel.parseData(data: data)
-
-                self.collectionView.reloadData()
+//        let url = URL(string: "https://api.artic.edu/api/v1/artworks")!
+//        let requestArtworks = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+//        let sessionArtworks = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+//        let taskArtworks = sessionArtworks.dataTask(with: requestArtworks) { (data, response, error) in
+//
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else if let data = data {
+//                self.artworkData = self.dataModel.parseData(data: data)
+//
+//                self.collectionView.reloadData()
 //
 //                DispatchQueue.main.async {
 //                    self.collectionView.reloadData()
 //                }
-            }
-        }
-         taskArtworks.resume()
+//            }
+//        }
+//         taskArtworks.resume()
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return artworkData.count
@@ -62,6 +77,15 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
         return cell
     }
     
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Alert", message: "No favorite art is saved.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { action in
+            print("No favorite alert")
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
     
 
         
