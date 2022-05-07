@@ -10,6 +10,7 @@ import Foundation
 class DataModel {
     
     var favoritedCollection = [FavoriteCollection]()
+    
     var indexOfSelectedArkwork: Int {
         get {
             return UserDefaults.standard.integer(forKey: "ArtworkDataIndex")
@@ -66,7 +67,7 @@ class DataModel {
             userDefaults.set(false, forKey: "FirstTime")
         }
     }
-    
+        
     /*
        Book Title: UIKit Apprentice
        Authors: Fahim Farook, Matthijs Hollemans
@@ -83,5 +84,7 @@ class DataModel {
                return []
            }
        }
+    
+    
     
 }
