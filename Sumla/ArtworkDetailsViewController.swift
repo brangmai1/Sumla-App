@@ -7,10 +7,17 @@
 
 import UIKit
 
+protocol favoritedDelegate {
+    func didTapAddFavorite(color: UIColor)
+}
+
 class ArtworkDetailsViewController: UIViewController {
     var artwork: ArtworkData!
     var downloadTask: URLSessionDownloadTask?
-
+    //var managedObjectContext: NSManagedObjectContext!
+    
+    //var favdelegate: favoritedDelegate!
+    
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artworkLargeView: UIImageView!
@@ -25,6 +32,13 @@ class ArtworkDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         configure(for: artwork)
+    }
+    @IBAction func addToFavorite(_ sender: Any) {
+        guard let mainView = navigationController?.parent?.view
+        else{ return }
+//        let favArtwork = Sumla(context: managedObjectContext)
+//        favdelegate.didTapAddFavorite(color: .red)
+        dismiss(animated: true, completion: nil)
     }
     
     func configure(for artData: ArtworkData) {

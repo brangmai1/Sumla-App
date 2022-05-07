@@ -165,7 +165,13 @@
                             <constraint firstItem="GqN-vL-2W8" firstAttribute="top" secondItem="ZVm-me-tMp" secondAttribute="bottom" constant="5" id="zw7-sF-t0c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="i7R-Qi-a3C"/>
+                    <navigationItem key="navigationItem" id="i7R-Qi-a3C">
+                        <barButtonItem key="rightBarButtonItem" title="Add Favorites" id="pyF-R5-HYI">
+                            <connections>
+                                <action selector="addToFavorite:" destination="jOj-FL-s3s" id="Ch5-uO-2om"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="artistLabel" destination="Xo9-5v-AWR" id="Rok-RA-18Y"/>
                         <outlet property="artworkLargeView" destination="EEj-lH-w85" id="wOw-0h-dkS"/>
@@ -603,7 +609,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3aB-uR-Wxs"/>
+        <segue reference="dMu-2e-nxX"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
