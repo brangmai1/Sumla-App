@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension Entity {
+extension FavoriteArtworks {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Entity> {
-        return NSFetchRequest<Entity>(entityName: "Entity")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<FavoriteArtworks> {
+        return NSFetchRequest<FavoriteArtworks>(entityName: "Entity")
     }
 
     @NSManaged public var id: Int64
@@ -32,6 +32,6 @@ extension Entity {
 
 }
 
-extension Entity : Identifiable {
+extension FavoriteArtworks : Identifiable {
 
 }

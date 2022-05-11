@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ArtCollectionCell: UITableViewCell {
     
@@ -15,9 +16,11 @@ class ArtCollectionCell: UITableViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var departmentTitleLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-    var downloadTask: URLSessionDownloadTask?
     
+    var downloadTask: URLSessionDownloadTask?
+    var manageObjectContext: NSManagedObjectContext!
     var favorited: Bool = false
+    var artworkTitle: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,10 +30,33 @@ class ArtCollectionCell: UITableViewCell {
         let toBeFavorited = !favorited
         if toBeFavorited {
             self.setFavorite(true)
+            let hudAnimationView = HudAnimationView.hud(inView: self, animated: true)
+            hudAnimationView.message = "Saved"
+            
+            afterDelay(0.6){
+                hudAnimationView.hide()
+            }
+            
+//            let favoriteArtworks = FavoriteArtworks(context: manageObjectContext)
+//            favoriteArtworks.title = self.artworkTitle
+//            do {
+//                try manageObjectContext.save()
+//                afterDelay(0.6){
+//                    hudAnimationView.hide()
+//                }
+//            } catch {
+//                fatalError("Error: \(error)")
+//            }
+            
         } else {
             self.setFavorite(false)
         }
     }
+    
+    func afterDelay(_ seconds: Double, run: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: run)
+    }
+    
     func setFavorite(_ isFavorited: Bool) {
         favorited = isFavorited
         if (favorited) {
@@ -44,6 +70,7 @@ class ArtCollectionCell: UITableViewCell {
     }
     
     func configure(for artData: ArtworkData) {
+        self.artworkTitle = artData.title! // Testing
         titleLabel!.text = artData.title
         if artData.artist_title != "" {
             artistLabel!.text = artData.artist_display

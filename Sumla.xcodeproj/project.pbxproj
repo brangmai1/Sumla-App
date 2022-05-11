@@ -10,6 +10,7 @@
 		9D1D860F275F0B0F00A1561F /* ArtCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D860E275F0B0F00A1561F /* ArtCollectionData.swift */; };
 		9D2643DE27379901003FF259 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2643DD27379901003FF259 /* HomeViewController.swift */; };
 		9D2EDCBA273AE61900D32E70 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2EDCB9273AE61900D32E70 /* SearchViewController.swift */; };
+		9D32A4F9282B506D006528C3 /* HudAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32A4F8282B506D006528C3 /* HudAnimationView.swift */; };
 		9D77D8F927FF7DFC00A8046C /* Entity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D77D8F727FF7DFC00A8046C /* Entity+CoreDataClass.swift */; };
 		9D77D8FA27FF7DFC00A8046C /* Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D77D8F827FF7DFC00A8046C /* Entity+CoreDataProperties.swift */; };
 		9D8C16AB271F50D2000EC665 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C16AA271F50D2000EC665 /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		9D1D860E275F0B0F00A1561F /* ArtCollectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionData.swift; sourceTree = "<group>"; };
 		9D2643DD27379901003FF259 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9D2EDCB9273AE61900D32E70 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9D32A4F8282B506D006528C3 /* HudAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudAnimationView.swift; sourceTree = "<group>"; };
 		9D77D8F727FF7DFC00A8046C /* Entity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9D77D8F827FF7DFC00A8046C /* Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9D8C16A7271F50D2000EC665 /* Sumla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sumla.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 				9DCAA6DF27AA46DA003BDBA3 /* SearchTitleViewController.swift */,
 				9D8F2BC027AE31AA00C5C667 /* SearchArtworkTypeViewController.swift */,
 				9D1D860E275F0B0F00A1561F /* ArtCollectionData.swift */,
+				9D32A4F8282B506D006528C3 /* HudAnimationView.swift */,
 				9D8C16B0271F50D2000EC665 /* Main.storyboard */,
 				9D8C16C3271F5A6C000EC665 /* Assets.xcassets */,
 				9D8C16B8271F50D3000EC665 /* LaunchScreen.storyboard */,
@@ -195,6 +198,7 @@
 				9D2643DE27379901003FF259 /* HomeViewController.swift in Sources */,
 				9D8F2BCF27B9DA1500C5C667 /* FavoriteGridCell.swift in Sources */,
 				9D77D8FA27FF7DFC00A8046C /* Entity+CoreDataProperties.swift in Sources */,
+				9D32A4F9282B506D006528C3 /* HudAnimationView.swift in Sources */,
 				9D77D8F927FF7DFC00A8046C /* Entity+CoreDataClass.swift in Sources */,
 				9DCAA6E027AA46DA003BDBA3 /* SearchTitleViewController.swift in Sources */,
 				9DCAA6D827A30F6D003BDBA3 /* DataModel.swift in Sources */,
