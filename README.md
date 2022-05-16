@@ -13,3 +13,11 @@ The Sumla app is for anyone who loves and appreciates humanity's extraordinary c
 
 ![](https://i.imgur.com/AHtVkua.gif)
 
+### Added features:
+- [x] Pop up animation
+- [x] Save favorite artworks 
+- [x] Search artworks by artwork titles or artwork categories
+- [x] save favorite artworks from search
+- [X] Protocal
+
+![](https://i.imgur.com/2Qqxym2.gif)
