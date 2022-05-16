@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArtworkDetailsViewControllerDelegate {    
     
     @IBOutlet weak var tableView: UITableView!
     var artworkData = [ArtworkData]()
@@ -53,6 +53,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func artworkDetailsViewControllerDidSave(isSaved: Bool, color: UIColor) {
+//        let artcollectionCell = ArtCollectionCell()
+//        artcollectionCell.backgroundColor = color
+//        artcollectionCell.favorited = isSaved
+//
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
+        return
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         //Find the selected artwork
@@ -63,6 +75,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Pass the selected artwork to the details view controller
         let artworkDetailsViewController = segue.destination as! ArtworkDetailsViewController
         artworkDetailsViewController.artwork = artwork
+        artworkDetailsViewController.delegate = self
         
         artworkDetailsViewController.hidesBottomBarWhenPushed = true
         tableView.deselectRow(at: indexPath, animated: true)

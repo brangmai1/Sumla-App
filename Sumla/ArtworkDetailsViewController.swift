@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ArtworkDetailsViewControllerDelegate: AnyObject {
+    func artworkDetailsViewControllerDidSave(isSaved: Bool, color: UIColor)
+}
+
 class ArtworkDetailsViewController: UIViewController {
     var artwork: ArtworkData!
     var downloadTask: URLSessionDownloadTask?
@@ -20,6 +24,9 @@ class ArtworkDetailsViewController: UIViewController {
     @IBOutlet weak var artworkTypeLabel: UILabel!
     @IBOutlet weak var styleTitleLabel: UILabel!
     @IBOutlet weak var provenanceLabel: UILabel!
+    
+    weak var delegate: ArtworkDetailsViewControllerDelegate!
+//    var saveArtwork = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +58,23 @@ class ArtworkDetailsViewController: UIViewController {
         } else {
             provenanceLabel.text = "Unknown"
         }
+    }
+    
+    @IBAction func saveArtwork(_ sender: Any) {
+        guard let mainView = navigationController?.parent?.view
+        else { return }
+        //delegate.artworkDetailsViewControllerDidSave(isSaved: true, color: .green)
+        let hudAnimationView = HudAnimationView.hud(inView: mainView, animated: true)
+        hudAnimationView.message = "Saved"
+        
+        afterDelay(0.6) {
+            hudAnimationView.hide()
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func afterDelay(_ seconds: Double, run: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: run)
     }
     
     func getUrlString(imageId: String) -> String {

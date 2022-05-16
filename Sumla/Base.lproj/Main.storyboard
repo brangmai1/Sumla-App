@@ -165,7 +165,13 @@
                             <constraint firstItem="GqN-vL-2W8" firstAttribute="top" secondItem="ZVm-me-tMp" secondAttribute="bottom" constant="5" id="zw7-sF-t0c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="i7R-Qi-a3C"/>
+                    <navigationItem key="navigationItem" id="i7R-Qi-a3C">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="hbX-Ns-JNm">
+                            <connections>
+                                <action selector="saveArtwork:" destination="jOj-FL-s3s" id="JEk-Iy-hNO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="artistLabel" destination="Xo9-5v-AWR" id="Rok-RA-18Y"/>
                         <outlet property="artworkLargeView" destination="EEj-lH-w85" id="wOw-0h-dkS"/>

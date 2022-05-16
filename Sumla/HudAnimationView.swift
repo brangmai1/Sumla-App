@@ -21,12 +21,9 @@ class HudAnimationView: UIView {
         return hudAnimationView
     }
 
-    
-//     Only override draw() if you perform custom drawing.
-//     An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
-        let boxWidth: CGFloat = 96
-        let boxHeight: CGFloat = 96
+        let boxWidth: CGFloat = 75
+        let boxHeight: CGFloat = 75
         
         let rectangleBox = CGRect(
             x: round((bounds.size.width - boxWidth) / 2),
@@ -47,7 +44,7 @@ class HudAnimationView: UIView {
         let textSize = message.size(withAttributes: attributes)
         let textPoint = CGPoint(
             x: center.x - round(textSize.width / 2),
-            y: center.y - round(textSize.height / 2) + boxHeight / 4)
+            y: center.y - round(textSize.height / 2) + boxHeight / 12)
         message.draw(at: textPoint, withAttributes: attributes)
     }
     

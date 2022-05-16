@@ -10,6 +10,7 @@ import CoreData
 
 class ArtCollectionCell: UITableViewCell {
     
+    
     @IBOutlet weak var artView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
@@ -56,6 +57,7 @@ class ArtCollectionCell: UITableViewCell {
     func afterDelay(_ seconds: Double, run: @escaping () -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: run)
     }
+    
     
     func setFavorite(_ isFavorited: Bool) {
         favorited = isFavorited
